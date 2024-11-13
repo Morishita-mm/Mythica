@@ -3,6 +3,7 @@ package main
 import (
 	"back/controllers"
 	"back/initializers"
+	"back/middleware"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -24,6 +25,7 @@ func main() {
 
 	r.POST("/signup", controllers.Signup)
 	r.POST("/login", controllers.Login)
+	r.GET("/validate", middleware.RequireAuth, controllers.Validate)
 
 	r.Run()
 }
