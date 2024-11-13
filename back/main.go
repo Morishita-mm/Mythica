@@ -1,6 +1,7 @@
 package main
 
 import (
+	"back/controllers"
 	"back/initializers"
 	"net/http"
 
@@ -20,5 +21,7 @@ func main() {
 			"message": "hello",
 		})
 	})
+
+	r.POST("/signup", controllers.Signup)
 	r.Run()
 }
